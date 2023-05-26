@@ -11,9 +11,10 @@ const Login = ( {onSubmit}) => {
     const [password, setPassword] = useState('')
 
     const valid = (e) => {
-     // e.preventDefaul() -- esto mareaba la ejecución
+      //e.preventDefaul() -- esto mareaba la ejecución
       console.log(email,password)
       onSubmit({email,password})
+    
       
     }
     return (

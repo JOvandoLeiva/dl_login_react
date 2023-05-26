@@ -1,22 +1,33 @@
 import './App.css';
 import Login from './Components/Login';
 import Alert from './Components/Alert';
+import { useState } from 'react';
 
 function App() {
+
+
+  const [alertMessage, setAlertMessage] = useState('')
+  const [alertType, setAlertType] = useState('')
+
 
   const testLogin = (user) => {
     const validEmail = "usuario@email.com"
     const validPass = "password"
+   
+ 
+    
     //console.log(validEmail,validPass)
     if(user.email === validEmail && user.password === validPass )
     {
-      //<Alert />
-      alert("exitoso")
+      setAlertMessage('Exitoso')
+      setAlertType('success')
+
     }
     else
     {
-      <Alert />
-      alert("eeenngh")
+      setAlertMessage('No se pudo u.u')
+      setAlertType('danger')
+     
     }
   }
 
@@ -28,7 +39,7 @@ function App() {
 
          <div className='border p-3'>
           <Login onSubmit={testLogin}/>
-            
+          <Alert message={alertMessage} type={alertType} />
           </div>
        </div>
     </div>
